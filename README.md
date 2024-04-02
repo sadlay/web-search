@@ -18,6 +18,12 @@
 docker run -p 3000:3000 --name web-search --restart unless-stopped -d sadlay/web-search:latest
 ```
 
+如果是在生产环境中使用，可以通过环境变量设置端口和基础URL。
+
+```shell
+docker run -e PORT=8080 -e BASE_URL='https://your-domain.com' -p 8080:8080 sadlay/web-search:latest
+```
+
 ### 本地启动
 
 需要Node-20以上版本。
@@ -28,6 +34,9 @@ git https://github.com/sadlay/web-search.git
 
 # 进入目录
 cd web-search
+
+# 复制配置文件
+cp .env.example .env
 
 # 安装依赖
 npm install
