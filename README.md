@@ -12,6 +12,14 @@
 
 ## 使用
 
+### Docker启动（推荐）
+
+```shell
+docker run -p 3000:3000 --name web-search -d sadlay/web-search:lastest
+```
+
+### 本地启动
+
 需要Node-20以上版本。
 
 ```shell
