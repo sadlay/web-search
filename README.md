@@ -15,7 +15,7 @@
 ### Docker启动（推荐）
 
 ```shell
-docker run -p 3000:3000 --name web-search -d sadlay/web-search:lastest
+docker run -p 3000:3000 --name web-search --restart unless-stopped -d sadlay/web-search:latest
 ```
 
 ### 本地启动
