@@ -9,7 +9,7 @@ servers:
 paths:
   /search:
     get:
-      operationId: searchContent
+      operationId: webSearchByQuery
       summary: 基于查询搜索网页内容。
       parameters:
         - name: query
@@ -54,7 +54,7 @@ paths:
 
   /content:
     get:
-      operationId: extractContent
+      operationId: retrieveContentByUrl
       summary: 从指定URL提取内容。
       parameters:
         - name: url
