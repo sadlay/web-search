@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # 运行 app.js
-CMD ["node", "app.js"]
+CMD ["node", "server.js"]
