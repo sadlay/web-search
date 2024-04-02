@@ -32,7 +32,7 @@ jobs:
             linux/arm/v5
             linux/arm/v7
             linux/arm64
-                  push: true
+        push: true
         build-args: |
           APP_NAME=${{ env.APP_NAME }}
           APP_VERSION=${{ env.APP_VERSION }}
