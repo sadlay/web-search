@@ -1,0 +1,48 @@
+# 忽略 node_modules 目录，它们应该在构建过程中通过 `npm install` 生成
+node_modules/
+
+# 忽略 .git 和其他版本控制目录
+.git
+.gitignore
+.svn
+.hg
+
+# 忽略日志文件和数据库文件
+*.log
+*.sql
+*.sqlite
+
+# 忽略编辑器设置和私有文件
+.vscode
+.idea
+*.env
+*.swp
+*.swo
+*~
+
+# 忽略开发用的配置文件和脚本
+Dockerfile.dev
+*config.js
+*config.json
+docker-compose.yml
+docker-compose.*.yml
+*config.development*
+*config.test*
+
+# 忽略测试、文档和示例文件
+test/
+tests/
+__tests__
+coverage/
+docs/
+examples/
+
+# 忽略构建输出目录
+dist/
+build/
+tmp/
+
+# 忽略所有 .DS_Store 文件
+.DS_Store
+
+README.md

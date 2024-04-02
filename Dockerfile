@@ -13,8 +13,12 @@ RUN npm install
 # 将项目文件复制到工作目录
 COPY . .
 
-# 暴露 3000 端口
-EXPOSE 3000
+# 暴露端口
+EXPOSE $PORT
+
+# 设置环境变量
+ENV PORT=3000
+ENV BASE_URL=http://localhost:3000
 
 # 运行 app.js
 CMD ["node", "server.js"]

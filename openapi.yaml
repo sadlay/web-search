@@ -1,0 +1,99 @@
+openapi: 3.1.0
+info:
+  title: WebSearchAPI
+  description: 该API允许用户基于查询搜索网页内容或者从指定网页中提取内容。
+  version: 1.0.0
+servers:
+  - url: {{WEB_SEARCH_BASE_URL}}
+    description: 主API服务器
+paths:
+  /search:
+    get:
+      operationId: searchContent
+      summary: 基于查询搜索网页内容。
+      parameters:
+        - name: query
+          in: query
+          required: true
+          description: 搜索查询关键词。
+          schema:
+            type: string
+        - name: size
+          in: query
+          required: false
+          description: 返回结果的数量。
+          schema:
+            type: integer
+            default: 5
+        - name: content
+          in: query
+          required: false
+          description: 是否返回网页链接内容。仅在该参数为true时，响应中才包含content字段。
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: 返回的搜索结果的JSON数组。注意：content字段仅在请求参数content为true时返回。
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: object
+                  properties:
+                    href:
+                      type: string
+                    title:
+                      type: string
+                    abstract:
+                      type: string
+                    content:
+                      type: string
+                      nullable: true
+
+  /content:
+    get:
+      operationId: extractContent
+      summary: 从指定URL提取内容。
+      parameters:
+        - name: url
+          in: query
+          required: true
+          description: 需要提取内容的网页URL。
+          schema:
+            type: string
+        - name: type
+          in: query
+          required: false
+          description: 返回内容的类型（text, html, markdown）。默认为text。
+          schema:
+            type: string
+            enum: [text, html, markdown]
+            default: text
+        - name: cookie
+          in: query
+          required: false
+          description: 网页所需的cookie。
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 从指定URL提取的内容。
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  content:
+                    type: string
+                  title:
+                    type: string
+                  byline:
+                    type: string
+                  length:
+                    type: integer
+                  siteName:
+                    type: string
+                  publishedTime:
+                    type: string

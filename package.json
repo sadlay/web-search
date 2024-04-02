@@ -3,6 +3,7 @@
     "@mozilla/readability": "^0.5.0",
     "axios": "^1.6.8",
     "breakdance": "^3.0.1",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "fs": "^0.0.1-security",
     "jsdom": "^24.0.0",
