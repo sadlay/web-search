@@ -42,7 +42,7 @@ cp .env.example .env
 npm install
 
 # 启动服务
-node server.js
+npm run dev
 ````
 
 ## 接口
