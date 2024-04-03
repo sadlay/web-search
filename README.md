@@ -18,10 +18,10 @@
 docker run -p 3000:3000 --name web-search --restart unless-stopped -d sadlay/web-search:latest
 ```
 
-如果是在生产环境中使用，可以通过环境变量设置端口和基础URL。
+如果是在生产环境中使用，可以通过环境变量设置端口号。
 
 ```shell
-docker run -e PORT=8080 -e BASE_URL='https://your-domain.com' -p 8080:8080 --name web-search --restart unless-stopped -d sadlay/web-search:latest
+docker run -e PORT=8080 -p 8080:8080 --name web-search --restart unless-stopped -d sadlay/web-search:latest
 ```
 
 ### 本地启动

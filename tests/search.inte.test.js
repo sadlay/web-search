@@ -1,4 +1,4 @@
-const { bingSearch } = require('./search');
+const { bingSearch } = require('../src/search');
 
 describe('bingSearch Integration Test', () => {
     jest.setTimeout(30000); // 设置较长的超时时间，因为启动浏览器和页面加载需要时间

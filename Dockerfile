@@ -1,6 +1,10 @@
 # 使用 satantime/puppeteer-node 作为基础镜像
 FROM satantime/puppeteer-node:20.11-buster-slim
 
+# 设置环境变量
+ENV PORT=3000
+ENV NODE_ENV=production
+
 # 设置工作目录
 WORKDIR /app
 
@@ -15,11 +19,6 @@ COPY . .
 
 # 暴露端口
 EXPOSE $PORT
-
-# 设置环境变量
-ENV PORT=3000
-ENV BASE_URL=http://localhost:3000
-ENV NODE_ENV=production
 
 # 根据 NODE_ENV 环境变量决定启动方式
 CMD ["sh", "-c", "if [ \"$NODE_ENV\" = 'production' ]; then npm start; else npm run dev; fi"]

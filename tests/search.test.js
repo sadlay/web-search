@@ -1,7 +1,8 @@
 // search.test.js
-const { bingSearch } = require('./search');
+const { bingSearch } = require('../src/search');
+const { fetchContent } = require('../src/extract');
 const puppeteer = require('puppeteer');
-const { fetchContent } = require('./extract');
+
 
 // 模拟 puppeteer 和 fetchContent
 jest.mock('puppeteer', () => ({
@@ -17,7 +18,7 @@ jest.mock('puppeteer', () => ({
     }),
 }));
 
-jest.mock('./extract', () => ({
+jest.mock('../src/extract', () => ({
     fetchContent: jest.fn().mockResolvedValue({ content: "Example content" }),
 }));
 

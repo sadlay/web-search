@@ -4,7 +4,8 @@ info:
   description: 根据关键词通过搜索引擎搜索，或根据给定的url从网页中提取有效的内容。
   version: 1.0.0
 servers:
-  - url: {{WEB_SEARCH_BASE_URL}}
+  - url: http://localhost:3000
+    description: 本地开发环境
 paths:
   /search:
     get:
