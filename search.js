@@ -5,12 +5,17 @@ async function bingSearch(query, size = 5, content = false) {
     const browser = await puppeteer.launch({
         args: [
             '--no-sandbox',
-            '--disable-setuid-sandbox'
+            '--disable-setuid-sandbox',
         ]
     });
     try {
         const page = await browser.newPage();
         await page.goto(`https://www.bing.com/search?q=${encodeURIComponent(query)}&cc=US`, { timeout: 5000 });
+        // FIXME: 等待页面加载完成，解决由于重定向导致的页面加载不完整问题，MacOS M系列芯片上需要注释掉这行
+        console.log(process.env.NODE_ENV);
+        if (process.env.NODE_ENV === 'production') {
+            await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+        }
         const summaries = await page.evaluate((max) => {
             const liElements = Array.from(document.querySelectorAll("#b_results > .b_algo"));
             return liElements.slice(0, max).map((li) => {

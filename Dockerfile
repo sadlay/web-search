@@ -19,6 +19,7 @@ EXPOSE $PORT
 # 设置环境变量
 ENV PORT=3000
 ENV BASE_URL=http://localhost:3000
+ENV NODE_ENV=production
 
-# 运行 app.js
-CMD ["node", "server.js"]
+# 根据 NODE_ENV 环境变量决定启动方式
+CMD ["sh", "-c", "if [ \"$NODE_ENV\" = 'production' ]; then npm start; else npm run dev; fi"]
